@@ -2,9 +2,12 @@ import * as React from 'react';
 
 import { cn } from '@/lib/cn';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {}
-
-export function Section({ id, children, className, ...props }: Props) {
+export function Section({
+  id,
+  children,
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLElement>) {
   return (
     <section
       id={id}

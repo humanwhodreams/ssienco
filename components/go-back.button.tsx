@@ -5,7 +5,7 @@ import { Undo2Icon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export function GoBackButton() {
-  let router = useRouter();
+  const router = useRouter();
   return (
     <Button
       type="button"
