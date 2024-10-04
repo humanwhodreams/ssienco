@@ -54,7 +54,7 @@ export function Header({ className }: Props) {
               <Link
                 href={link.href}
                 className={buttonVariants({
-                  variant: 'ghost',
+                  variant: 'ghost-text',
                   size: 'xxs',
                   className: 'text-base',
                 })}
