@@ -2,6 +2,7 @@
 
 import { Brand } from '@/components/ui/brand';
 import Link from 'next/link';
+import { ThemeToggleV2 } from './theme-toggle-v2';
 import { buttonVariants } from './ui/button';
 import { cn } from '@/lib/cn';
 import { useWindowScroll } from '@/hooks/use-window-scroll';
@@ -42,12 +43,12 @@ export function Header({ className }: Props) {
       <nav
         className={cn(
           'flex items-center justify-between px-4 h-11 z-50 transition-colors bg-background',
-          scroll ? 'border-b' : 'border-b-0'
+          scroll ? 'border-b shadow-sm bg-background/50 backdrop-blur-xl' : 'border-b-0'
         )}
       >
         <Brand />
 
-        <ul className="flex items-center gap-4">
+        <ul className="hidden lg:flex lg:items-center lg:gap-4">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
@@ -62,6 +63,9 @@ export function Header({ className }: Props) {
               </Link>
             </li>
           ))}
+          <li>
+            <ThemeToggleV2 />
+          </li>
         </ul>
       </nav>
     </header>

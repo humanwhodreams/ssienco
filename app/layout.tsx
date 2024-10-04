@@ -1,6 +1,6 @@
 import '@/style/globals.css';
 
-import { geistMono, geistSans } from '@/lib/font';
+import { cormorantGaramond, geistMono, geistSans } from '@/lib/font';
 
 import type { Metadata } from 'next';
 import { Providers } from '@/components/providers';
@@ -19,6 +19,8 @@ export default function RootLayout({
       <body
         className={cn(
           'font-geist-sans antialiased',
+          'flex flex-col items-center min-h-screen',
+          cormorantGaramond.variable,
           geistSans.variable,
           geistMono.variable
         )}

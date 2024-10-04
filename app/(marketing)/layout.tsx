@@ -9,8 +9,8 @@ interface Props {
 export default function Layout({ children }: Props) {
   return (
     <>
-      <Header />
-      <main>{children}</main>
+      <Header className='w-full'/>
+      <main className='flex-1'>{children}</main>
     </>
   );
 }
