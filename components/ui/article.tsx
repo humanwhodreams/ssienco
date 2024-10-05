@@ -1,26 +1,42 @@
-import * as React from 'react';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 
+import Image from 'next/image';
+import Link from 'next/link';
+import { blog } from '@/app/source';
 import { cn } from '@/lib/cn';
+import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { focusRing } from '@/lib/focuses';
 
 interface Props {
-  dangerouslySetInnerHTML: {
-    __html: string | TrustedHTML;
-  };
+  content: ReturnType<typeof blog.getPage>;
 }
 
-export function Article({ dangerouslySetInnerHTML }: Props) {
+export function Article({ content }: Props) {
+  if (content === undefined) return <span>Content cannot be undefined.</span>;
+
   return (
-    <article
-      className={cn(
-        'flex flex-col gap-2 mb-20 text-lg tracking-wide',
-        '[&>h1]:text-center',
-        '[&>h2]:mt-6',
-        '[&>ul]:my-6 [&>ul]:ml-6 [&>ul]:list-disc [&>li]:mt-2',
-        '[&>ol]:my-6 [&>ol]:ml-6 [&>ol]:list-decimal [&>li]:mt-2',
-        '[&>p>img]:overflow-hidden [&>p>img]:rounded-lg [&>p>img]:object-cover',
-        '[&>pre]:bg-muted [&>pre]:text-muted-foreground [&>pre]:p-5 [&>pre]:overflow-scroll'
-      )}
-      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
-    ></article>
+    <article className={cn('flex-1 min-w-0 max-w-5xl p-4 prose')}>
+      <content.data.body
+        components={{
+          ...defaultMdxComponents,
+          Image,
+          Tab,
+          Tabs,
+          a: ({ children, href }) => (
+            <Link
+              href={href as string}
+              rel="noreferrer noopener"
+              target="_blank"
+              className={cn(
+                'after:content-["↗"] after:ml-0.5 after:text-tertiary hover:text-tertiary rounded-md underline decoration-tertiary',
+                focusRing
+              )}
+            >
+              {children}
+            </Link>
+          ),
+        }}
+      />
+    </article>
   );
 }
