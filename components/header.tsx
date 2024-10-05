@@ -19,7 +19,7 @@ type Navlink = {
 const NAV_LINKS: Navlink[] = [
   {
     label: 'Blog',
-    href: '#',
+    href: '/blog',
   },
   {
     label: 'Resources',
@@ -27,7 +27,7 @@ const NAV_LINKS: Navlink[] = [
   },
   {
     label: 'About',
-    href: '#',
+    href: '/about',
   },
   {
     label: 'Contact',
