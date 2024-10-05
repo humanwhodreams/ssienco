@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# generated
+.velite
+
 # next.js
 /.next/
 /out/
