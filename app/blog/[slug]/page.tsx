@@ -18,7 +18,7 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <section className="container py-12 md:px-8">
-        <h1 className="md:w-2/3">{data.data.title}</h1>
+        <h1 className="md:max-w-5xl">{data.data.title}</h1>
         <p className="lead">{data.data.description}</p>
       </section>
       <section className="container flex flex-col px-0 py-8 lg:flex-row lg:items-start lg:px-4">
