@@ -2,8 +2,8 @@
 
 import { Brand } from '@/components/ui/brand';
 import Link from 'next/link';
-import { ThemeToggleV2 } from './theme-toggle-v2';
-import { buttonVariants } from './ui/button';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/cn';
 import { useWindowScroll } from '@/hooks/use-window-scroll';
 
@@ -64,7 +64,7 @@ export function Header({ className }: Props) {
             </li>
           ))}
           <li>
-            <ThemeToggleV2 />
+            <ThemeToggle />
           </li>
         </ul>
       </nav>
