@@ -36,7 +36,7 @@ export default function Page() {
                 )}
               >
                 <p className="font-medium">{post.data.title}</p>
-                <p className="muted">{post.data.description}</p>
+                <p className="muted line-clamp-2">{post.data.description}</p>
 
                 <p className="pt-4 mt-auto text-xs text-muted-foreground">
                   {new Date(post.data.date ?? post.file.name).toDateString()}
