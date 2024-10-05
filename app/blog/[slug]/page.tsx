@@ -1,10 +1,7 @@
-import * as React from 'react';
-
-import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
+import { Article } from '@/components/ui/article';
+import React from 'react';
 import { blog } from '@/app/source';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 
 interface Props {
   params: Promise<{
@@ -21,24 +18,27 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <section className="container py-12 md:px-8">
-        <h1>{data.data.title}</h1>
+        <h1 className="md:w-2/3">{data.data.title}</h1>
         <p className="lead">{data.data.description}</p>
       </section>
       <section className="container flex flex-col px-0 py-8 lg:flex-row lg:items-start lg:px-4">
-        <article className="flex-1 min-w-0 p-4 prose">
-          <InlineTOC items={data.data.toc} />
-          <data.data.body components={{ ...defaultMdxComponents, Image }} />
-        </article>
-        <aside className="flex flex-col gap-4 border-l p-4 text-sm lg:w-[250px]">
+        <React.Suspense fallback={<p>loading post...</p>}>
+          <Article content={data} />
+        </React.Suspense>
+        <aside className="flex flex-col gap-4 border-l p-4 text-sm lg:w-[250px] lg:sticky lg:top-11">
           <div>
-            <div className="mb-1 text-muted-foreground">Written by</div>
-            <div className="font-medium">{data.data.author}</div>
+            <p className="[&:not(:first-child)]:mt-0 mb-1 text-muted-foreground">
+              Written by
+            </p>
+            <p className="[&:not(:first-child)]:mt-0 font-medium leading-none">
+              {data.data.author}
+            </p>
           </div>
           <div>
-            <div className="mb-1 muted">At</div>
-            <div className="font-medium">
+            <p className="[&:not(:first-child)]:mt-0 mb-1 muted">At</p>
+            <p className="[&:not(:first-child)]:mt-0 font-medium leading-none">
               {new Date(data.data.date ?? data.file.name).toDateString()}
-            </div>
+            </p>
           </div>
         </aside>
       </section>
