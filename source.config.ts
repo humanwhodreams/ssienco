@@ -6,6 +6,7 @@ import {
   metaSchema,
 } from 'fumadocs-mdx/config';
 
+import { remarkImage } from 'fumadocs-core/mdx-plugins';
 import { z } from 'zod';
 
 export const { docs, meta } = defineDocs({
@@ -32,4 +33,8 @@ export const blog = defineCollections({
   }),
 });
 
-export default defineConfig({});
+export default defineConfig({
+  mdxOptions: {
+    remarkPlugins: [remarkImage],
+  },
+});
