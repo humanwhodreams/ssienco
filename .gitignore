@@ -19,6 +19,10 @@
 # production
 /build
 
+# generated
+.velite
+.source
+
 # misc
 .DS_Store
 *.pem
