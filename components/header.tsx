@@ -39,10 +39,10 @@ export function Header({ className }: Props) {
   const { scroll } = useWindowScroll(30);
 
   return (
-    <header className={cn('sticky inset-x-0 top-0 z-[9999]', className)}>
+    <header className={cn('sticky inset-x-0 top-0 z-[100]', className)}>
       <nav
         className={cn(
-          'flex items-center justify-between px-4 md:px-12 h-11 z-50 transition-colors bg-background',
+          'flex items-center justify-between px-4 md:px-12 h-11 transition-colors bg-background',
           scroll ? 'border-b shadow-sm bg-background/50 backdrop-blur-xl' : 'border-b-0'
         )}
       >
