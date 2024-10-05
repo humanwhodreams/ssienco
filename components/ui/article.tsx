@@ -28,7 +28,7 @@ export function Article({ content }: Props) {
               rel="noreferrer noopener"
               target="_blank"
               className={cn(
-                'after:content-["↗"] after:ml-0.5 after:text-tertiary hover:text-tertiary rounded-md underline decoration-tertiary',
+                'rounded-md underline decoration-tertiary',
                 focusRing
               )}
             >
