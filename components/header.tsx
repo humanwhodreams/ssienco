@@ -23,7 +23,7 @@ const NAV_LINKS: Navlink[] = [
   },
   {
     label: 'Resources',
-    href: '#',
+    href: '/resources',
   },
   {
     label: 'About',
@@ -31,7 +31,7 @@ const NAV_LINKS: Navlink[] = [
   },
   {
     label: 'Contact',
-    href: '#',
+    href: '/contact',
   },
 ];
 
