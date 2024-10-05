@@ -42,7 +42,7 @@ export function Header({ className }: Props) {
     <header className={cn('sticky inset-x-0 top-0', className)}>
       <nav
         className={cn(
-          'flex items-center justify-between px-4 h-11 z-50 transition-colors bg-background',
+          'flex items-center justify-between px-4 md:px-12 h-11 z-[9999px] transition-colors bg-background',
           scroll ? 'border-b shadow-sm bg-background/50 backdrop-blur-xl' : 'border-b-0'
         )}
       >
