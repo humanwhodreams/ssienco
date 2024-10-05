@@ -18,8 +18,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'font-geist-sans antialiased',
-          'flex flex-col items-center min-h-screen',
+          'relative font-geist-sans antialiased',
+          'flex flex-col min-h-screen',
           cormorantGaramond.variable,
           geistSans.variable,
           geistMono.variable
