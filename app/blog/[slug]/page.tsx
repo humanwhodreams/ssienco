@@ -1,6 +1,10 @@
+import { ArrowLeftIcon } from 'lucide-react';
 import { Article } from '@/components/ui/article';
+import Link from 'next/link';
 import React from 'react';
 import { blog } from '@/app/source';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/cn';
 import { notFound } from 'next/navigation';
 
 interface Props {
@@ -18,6 +22,13 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <section className="container py-12 md:px-8">
+        <Link
+          href={'/blog'}
+          className={cn(buttonVariants({ variant: 'ghost', size: 'sm', className: 'mb-8' }))}
+        >
+          <ArrowLeftIcon className="flex-shrink-0 mr-2 size-4 text-muted-foreground" />
+          Go back to blog
+        </Link>
         <h1 className="md:max-w-5xl">{data.data.title}</h1>
         <p className="lead">{data.data.description}</p>
       </section>
