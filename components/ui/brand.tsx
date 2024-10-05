@@ -14,7 +14,7 @@ export function Brand({ href }: Props) {
       href={href || '/'}
       className={cn('text-2xl font-semibold lg:px-3 py-px rounded-md', focusRing)}
     >
-      Minimal Blog
+      SSIENCO
     </Link>
   );
 }
