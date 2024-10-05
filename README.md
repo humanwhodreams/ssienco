@@ -1,17 +1,3 @@
-# Nextjs Blog
+# SSIENCO
 
-Ready made markdown blog for everyone.
-
-# Features
-
-- Markdown blog/components
-- SEO optimized
-- Static rendered pages
-- Filtering
-- Tagging and categorizations
-
-# Installation
-
-# Usage
-
-# References
+The official open-source repository of ssienco.
