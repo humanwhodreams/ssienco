@@ -1,0 +1,62 @@
+---
+title: Tailwindcss Breakpoint Indicator for Development
+description: A handy breakpoint indicator used for showing different screen sizes in projects that use Tailwindcss.
+date: 2024-10-05 22:03
+author: Enoabasi Essien
+published: true
+category: Software engineering
+---
+
+Over the course of using Tailwindcss a lot, I realised I always find myself guessing breakpoints for screensizes. I do not mind the hassle but as time went on I would have to go back between my browser and project figuring out the responsive aspect of my app. I am sure you are tired as well.
+
+I came across a really handy component from [Shadcn](https://github.com/shadcn-ui/ui/blob/main/apps/www/components/tailwind-indicator.tsx). A tailwind indicator component that displays the current breakpoint of the viewport. I then added my own add-ons for more information.
+
+The screen sizes include.
+
+| Screens | Alias         |
+| ------- | ------------- |
+| xs      | extra-small   |
+| sm      | small         |
+| md      | medium        |
+| lg      | large         |
+| xl      | extra-large   |
+| 2xl     | 2 extra-large |
+
+The indicator is only shown in Nodejs’s development mode and is hidden in production. Use the `NODE_ENV` for your project's framework. I am using Next.js.
+
+```ts
+if (process.env.NODE_ENV === 'production') return null;
+```
+
+The final component code should look something like this.
+
+```tsx title="tailwind-indicator.tsx"
+export function TailwindIndicator() {
+  if (process.env.NODE_ENV === 'production') return null;
+
+  return (
+    <div className="fixed z-50 flex items-center justify-center h-8 px-3 text-xs font-medium rounded-md bottom-1 left-1 border">
+      <div className="flex items-center sm:hidden">extra-small &mdash; xs</div>
+      <div className="items-center hidden md:hidden sm:flex">
+        small &mdash; sm
+      </div>
+      <div className="items-center hidden md:flex lg:hidden">
+        medium &mdash; md
+      </div>
+      <div className="items-center hidden lg:flex xl:hidden">
+        large &mdash; lg
+      </div>
+      <div className="items-center hidden xl:flex 2xl:hidden">
+        extra-large &mdash; xl
+      </div>
+      <div className="items-center hidden 2xl:flex">
+        &gt;2 extra-large &mdash; 2xl
+      </div>
+    </div>
+  );
+}
+```
+
+The indicator is placed at the bottom left of the application. It can be adjusted by tweaking the css `positions` which are top, bottom, left, and right.
+
+Happy coding. 🪶
