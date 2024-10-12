@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 
-export const generateMetadata = (): Metadata => {
+export const overrideMetadata = (override: Metadata): Metadata => {
   return {
-    title: 'Blog',
-    description: 'Ready made blog site for everyone, powered by Markdown.',
   };
 };
