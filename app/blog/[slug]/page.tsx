@@ -25,6 +25,8 @@ export default async function Page({ params }: Props) {
         <p className="lead">{page.data.description}</p>
       </section>
       <section className="container flex flex-col px-0 py-8 lg:flex-row lg:items-start lg:px-4">
+        <Article content={page} />
+        <Article.Aside content={page} />
       </section>
     </>
   );
