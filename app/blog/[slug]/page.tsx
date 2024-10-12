@@ -1,5 +1,6 @@
 import { Article } from '@/components/ui/article';
 import { BackButton } from '@/components/back-button';
+import type { Metadata } from 'next';
 import { blog } from '@/app/source';
 import { notFound } from 'next/navigation';
 import { overrideMetadata } from '@/lib/metadata';
@@ -27,4 +28,30 @@ export default async function Page({ params }: Props) {
       </section>
     </>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    slug: string;
+  }>;
+}): Promise<Metadata> {
+  const param = await params;
+  const page = blog.getPage([param.slug]);
+
+  if (!page) notFound();
+
+  return overrideMetadata({
+    title: page.data.title,
+    description:
+      page.data.description ??
+      'The blogging template built with Fumadocs and Next.js.',
+  });
+}
+
+export function generateStaticParams(): { slug: string }[] {
+  return blog.getPages().map((page) => ({
+    slug: page.slugs[0],
+  }));
 }
