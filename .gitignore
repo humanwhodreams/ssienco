@@ -9,9 +9,6 @@
 # testing
 /coverage
 
-# generated
-.velite
-
 # next.js
 /.next/
 /out/
@@ -20,7 +17,6 @@
 /build
 
 # generated
-.velite
 .source
 
 # misc

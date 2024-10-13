@@ -13,7 +13,13 @@ export function Article({ content }: Props) {
   if (content === undefined) return <span>Content cannot be undefined.</span>;
 
   return (
-    <article className={cn('flex-1 min-w-0 max-w-5xl p-4 prose')}>
+    <article
+      className={cn([
+        'flex-1 min-w-0 max-w-5xl p-4 prose',
+        '[&>p>a]:text-tertiary [&>p>a]:no-underline',
+        'hover:[&>p>a]:underline hover:[&>p>a]:decoration-tertiary',
+      ])}
+    >
       <content.data.body
         components={{
           ...defaultMdxComponents,

@@ -4,6 +4,13 @@ import Link from 'next/link';
 import { blog } from '@/app/source';
 import { cn } from '@/lib/cn';
 import { focusRing } from '@/lib/focuses';
+import { overrideMetadata } from '@/lib/metadata';
+
+export function generateMetadata() {
+  return overrideMetadata({
+    title: 'Blog',
+  });
+}
 
 type Blog = typeof blog;
 
@@ -31,7 +38,7 @@ export default function Page() {
               <Link
                 href={post.url}
                 className={cn(
-                  'flex flex-col p-4 transition-colors border border-t-0 bg-card hover:bg-accent hover:text-accent-foreground focus-visible:ring-offset-0',
+                  'flex flex-col p-4 transition-colors border border-t-0 bg-card hover:bg-accent hover:text-accent-foreground focus-visible:ring-offset-0 focus-visible:z-10',
                   focusRing
                 )}
               >

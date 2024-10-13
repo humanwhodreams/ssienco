@@ -1,4 +1,11 @@
 import { Section } from '@/components/ui/section';
+import { overrideMetadata } from '@/lib/metadata';
+
+export function generateMetadata() {
+  return overrideMetadata({
+    title: 'Home',
+  });
+}
 
 export default function Page() {
   return (
