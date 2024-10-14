@@ -61,7 +61,7 @@ export async function generateMetadata({
       publishedTime: `${page.data.date}`,
       images: [
         {
-          url: `${baseUrl}/og/${page.file.name}`,
+          url: `${baseUrl}og/${page.file.name}`,
           width: 1200,
           height: 630,
           alt: page.data.title,
