@@ -4,7 +4,7 @@ import { ImageResponse } from 'next/og';
 import type { ImageResponseOptions } from 'next/dist/compiled/@vercel/og/types';
 import type { NextRequest } from 'next/server';
 
-export const runtime = 'egde';
+export const runtime = 'edge';
 
 export async function GET(req: NextRequest) {
   try {
