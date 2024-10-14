@@ -14,7 +14,7 @@ interface DocumentRecord {
 }
 
 export function GET(): Response {
-  let results: Array<DocumentRecord> = [];
+  const results: Array<DocumentRecord> = [];
   const pages = blog.getPages();
 
   for (const page of pages) {
