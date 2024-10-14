@@ -46,11 +46,16 @@ export async function generateMetadata({
 
   return overrideMetadata({
     title: {
-      absolute: page.data.title
+      absolute: page.data.title,
     },
     description:
       page.data.description ??
       'The blogging template built with Fumadocs and Next.js.',
+    openGraph: {
+      authors: page.data.author,
+      type: 'article',
+      publishedTime: `${page.data.date}`,
+    },
   });
 }
 
