@@ -1,16 +1,15 @@
 import * as React from 'react';
 
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { blog } from '@/app/source';
 import { cn } from '@/lib/cn';
 import { focusRing } from '@/lib/focuses';
 import { overrideMetadata } from '@/lib/metadata';
 
-export function generateMetadata() {
-  return overrideMetadata({
-    title: 'Blog',
-  });
-}
+export const metadata: Metadata = overrideMetadata({
+  title: 'Blog'
+});
 
 type Blog = typeof blog;
 
