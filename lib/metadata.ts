@@ -13,6 +13,8 @@ export const overrideMetadata = (override: Metadata): Metadata => {
       url: 'https://ssienco.vercel.app',
       siteName: 'Ssienco',
       ...override.openGraph,
+      locale: 'en_US',
+      type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
@@ -28,3 +30,4 @@ export const baseUrl =
   process.env.NODE_ENV === 'development' || !process.env.VERCEL_URL
     ? new URL('http://localhost:3000')
     : new URL(`https://${process.env.VERCEL_URL}`);
+

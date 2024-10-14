@@ -2,7 +2,7 @@ import '@/style/globals.css';
 
 import type { Metadata, Viewport } from 'next';
 import { baseUrl, overrideMetadata } from '@/lib/metadata';
-import { cormorantGaramond, geistMono, geistSans } from '@/lib/font';
+import { geistMono, geistSans } from '@/lib/font';
 
 import { Providers } from '@/components/providers';
 import { cn } from '@/lib/cn';
@@ -35,7 +35,6 @@ export default function RootLayout({
         className={cn(
           'relative font-geist-sans antialiased',
           'flex flex-col min-h-screen',
-          cormorantGaramond.variable,
           geistSans.variable,
           geistMono.variable
         )}

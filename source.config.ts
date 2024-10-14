@@ -13,7 +13,7 @@ export const blog = defineCollections({
   type: 'doc',
   dir: './content/blog',
   schema: frontmatterSchema.extend({
-    author: z.string(),
+    author: z.string().or(z.array(z.string())),
     date: z.string().or(z.date()).optional(),
     published: z.boolean().default(true),
     category: z.string(),

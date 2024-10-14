@@ -20,9 +20,9 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <section className="container py-12 md:px-8">
-        <BackButton href="/blog">Go back to blogs</BackButton>
+        <BackButton href="/blog">Go back to blog</BackButton>
         <h1 className="mt-8 md:max-w-5xl">{page.data.title}</h1>
-        <p className="lead">{page.data.description}</p>
+        <p className="lead md:max-w-6xl">{page.data.description}</p>
       </section>
       <section className="container flex flex-col px-0 py-8 lg:flex-row lg:items-start lg:px-4">
         <Article content={page} />
@@ -45,10 +45,17 @@ export async function generateMetadata({
   if (!page) notFound();
 
   return overrideMetadata({
-    title: page.data.title,
+    title: {
+      absolute: page.data.title,
+    },
     description:
       page.data.description ??
       'The blogging template built with Fumadocs and Next.js.',
+    openGraph: {
+      authors: page.data.author,
+      type: 'article',
+      publishedTime: `${page.data.date}`,
+    },
   });
 }
 

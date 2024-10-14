@@ -17,7 +17,6 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'cormorant-garamond': 'var(--font-cormorant-garamond)',
         'geist-sans': 'var(--font-geist-sans)',
         'geist-mono': 'var(--font-geist-mono)',
       },

@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { Section } from '@/components/ui/section';
+import { overrideMetadata } from '@/lib/metadata';
+
+export const metadata: Metadata = overrideMetadata({
+  title: 'Home',
+});
 
 export default function Page() {
   return (
