@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
       ],
     });
   } catch (error) {
-    return new Response('Failed to generate opengraph image.', { status: 500 });
+    return new Response(`Failed to generate opengraph image. Error log => ${error}`, { status: 500 });
   }
 }
 
