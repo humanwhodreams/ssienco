@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { blog } from '@/app/source';
+import { createMetadataImage } from '@/utils/metadata';
 
 export const overrideMetadata = (override: Metadata): Metadata => {
   return {
@@ -13,6 +15,8 @@ export const overrideMetadata = (override: Metadata): Metadata => {
       url: 'https://ssienco.vercel.app',
       siteName: 'Ssienco',
       ...override.openGraph,
+      locale: 'en_US',
+      type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
@@ -28,3 +32,8 @@ export const baseUrl =
   process.env.NODE_ENV === 'development' || !process.env.VERCEL_URL
     ? new URL('http://localhost:3000')
     : new URL(`https://${process.env.VERCEL_URL}`);
+
+export const metadataImage = createMetadataImage({
+  source: blog,
+  imageRoute: 'api/og',
+});
