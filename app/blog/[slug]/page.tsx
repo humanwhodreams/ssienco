@@ -1,9 +1,10 @@
+import { baseUrl, overrideMetadata } from '@/lib/metadata';
+
 import { Article } from '@/components/ui/article';
 import { BackButton } from '@/components/back-button';
 import type { Metadata } from 'next';
 import { blog } from '@/app/source';
 import { notFound } from 'next/navigation';
-import { overrideMetadata } from '@/lib/metadata';
 
 interface Props {
   params: Promise<{
@@ -52,9 +53,25 @@ export async function generateMetadata({
       page.data.description ??
       'The blogging template built with Fumadocs and Next.js.',
     openGraph: {
-      authors: page.data.author,
       type: 'article',
+      title: page.data.title,
+      description: page.data.description,
+      url: page.url,
+      authors: page.data.author,
       publishedTime: `${page.data.date}`,
+      images: [
+        {
+          url: `${baseUrl}/og/${page.file.name}`,
+          width: 1200,
+          height: 630,
+          alt: page.data.title,
+        },
+      ],
+    },
+    twitter: {
+      title: page.data.title,
+      description: page.data.description,
+      images: [`${baseUrl}/og/${page.file.name}`],
     },
   });
 }
